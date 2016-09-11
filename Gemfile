@@ -50,3 +50,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use rails_12factor for heroku
 gem 'rails_12factor', group: :production
+
+# Use bootstrap 4 w/ bootstrap gem
+gem 'bootstrap', '~> 4.0.0.alpha4'
+
+# Use tether for tooltips/popovers
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
