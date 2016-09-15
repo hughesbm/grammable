@@ -61,3 +61,6 @@ end
 
 # Use simple_form for forms
 gem 'simple_form'
+
+# Use devise for user management
+gem 'devise'
