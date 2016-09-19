@@ -2,7 +2,13 @@
   <div class="col-xs-8 col-sm-4 text-xs-center">
     <h1>Grammable!</h1>
   </div>
+</div>
+<div class="row flex-items-xs-center flex-items-xs-around">
   <div class="col-xs-8 col-sm-4 text-xs-center">
-    <h1>Grammable!</h1>
+    <ul>
+      <% @grams.each do |gram| %>
+        <li><%= link_to gram.message, gram_path(gram) %></li>
+      <% end %>
+    </ul>
   </div>
 </div>
