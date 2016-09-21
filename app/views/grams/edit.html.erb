@@ -3,3 +3,4 @@
   <%= f.input :message %>
   <%= f.button :submit, 'Save Changes' %>
 <% end %>
+<%= link_to 'Delete this course', gram_path(current_gram), method: :delete, data: { confirm: 'Are you sure you want to delete this gram?' }, class: 'btn btn-danger' %>

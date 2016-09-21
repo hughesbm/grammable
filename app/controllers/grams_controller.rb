@@ -31,11 +31,18 @@ class GramsController < ApplicationController
     return render_not_found if current_gram.blank?
     current_gram.update_attributes(gram_params)
     if current_gram.valid?
-      flash[:success] = "Gram posted!"
+      flash[:success] = "Gram edited!"
       redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    return render_not_found if current_gram.blank?
+    current_gram.destroy
+    flash[:success] = "Gram deleted."
+    redirect_to root_path
   end
 
   private
