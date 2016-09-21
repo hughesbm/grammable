@@ -1,5 +1,5 @@
 class GramsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @grams = Gram.all
@@ -20,15 +20,17 @@ class GramsController < ApplicationController
   end
 
   def show
-    return render_not_found if current_gram.blank?
+    return render_error(:not_found) if current_gram.blank?
   end
 
   def edit
-    return render_not_found if current_gram.blank?
+    return render_error(:not_found) if current_gram.blank?
+    return render_error(:forbidden) if current_gram.user != current_user
   end
 
   def update
-    return render_not_found if current_gram.blank?
+    return render_error(:not_found) if current_gram.blank?
+    return render_error(:forbidden) if current_gram.user != current_user
     current_gram.update_attributes(gram_params)
     if current_gram.valid?
       flash[:success] = "Gram edited!"
@@ -39,7 +41,8 @@ class GramsController < ApplicationController
   end
 
   def destroy
-    return render_not_found if current_gram.blank?
+    return render_error(:not_found) if current_gram.blank?
+    return render_error(:forbidden) if current_gram.user != current_user
     current_gram.destroy
     flash[:success] = "Gram deleted."
     redirect_to root_path
@@ -57,8 +60,8 @@ class GramsController < ApplicationController
     @current_gram ||= Gram.find_by_id(params[:id])
   end
 
-  def render_not_found
-    render plain: 'Gram not found! :(', status: :not_found
+  def render_error(status)
+    render plain: "#{status.to_s.titleize}. :(", status: status
   end
 
 end
