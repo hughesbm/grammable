@@ -1,5 +1,6 @@
 <h1>Post a New Gram</h1>
 <%= simple_form_for @gram do |f| %>
   <%= f.input :message %>
+  <%= f.input :picture %>
   <%= f.button :submit, 'Post my gram!' %>
 <% end %>

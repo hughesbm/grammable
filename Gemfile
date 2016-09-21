@@ -67,3 +67,11 @@ gem 'simple_form'
 
 # Use devise for user management
 gem 'devise'
+
+# Use carrierwave for image uploading, MiniMagick for processing, fog-aws for storage
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'mini_magick'
+gem 'fog-aws'
+
+# Use Figaro for key management
+gem "figaro"

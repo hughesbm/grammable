@@ -1,14 +1,23 @@
-<div class="row flex-items-xs-center flex-items-xs-around">
-  <div class="col-xs-8 col-sm-4 text-xs-center">
-    <h1>Grammable!</h1>
-  </div>
-</div>
-<div class="row flex-items-xs-center flex-items-xs-around">
-  <div class="col-xs-8 col-sm-4 text-xs-center">
-    <ul>
-      <% @grams.each do |gram| %>
-        <li><%= link_to gram.message, gram_path(gram) %></li>
-      <% end %>
-    </ul>
+<div class="container">
+  <div class="row flex-items-xs-around">
+    <div class="col-xs-12 text-xs-center">
+      <h1>Grammable!</h1>
+      <h3><%= link_to 'Add a Gram', new_gram_path %></h3>
+    </div>
+    <% @grams.each do |gram| %>
+      <div class="col-md-6 col-lg-4">
+        <div class="gram-card card card-inverse text-xs-center">
+          <%= link_to gram_path(gram) do %>
+            <%= image_tag gram.picture.url(:square), class: "img-fluid card-img" %>
+            <div class="gram-overlay card-img-overlay flex-items-xs-middle flex-items-xs-center">
+              <div>
+                <h4 class="card-title"><%= gram.message %></h4>
+                <p class="card-text"><%= gram.created_at.strftime("Added %b %d, %Y") %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

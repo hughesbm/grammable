@@ -1,0 +1,17 @@
+.gram-card {
+  border: none;
+  // -moz-box-shadow: 2px 2px 3px 0 #d0d0d0;
+  // -webkit-box-shadow: 2px 2px 3px 0 #d0d0d0;
+  // box-shadow: 2px 2px 3px 0 #d0d0d0;
+}
+.gram-overlay {
+  display: flex;
+  opacity: 0.0;
+  background-color: transparent;
+  -webkit-transition: opacity 0.3s, background-color 0.3s;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+.gram-overlay:hover {
+  opacity: 1.0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
