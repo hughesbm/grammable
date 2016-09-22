@@ -12,4 +12,10 @@ FactoryGirl.define do
     picture { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'picture.png'), 'image/png') }
     association :user
   end
+
+  factory :comment do
+    message "nice gram"
+    association :gram
+    association :user
+  end
 end

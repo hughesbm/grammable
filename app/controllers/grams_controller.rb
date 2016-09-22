@@ -60,8 +60,4 @@ class GramsController < ApplicationController
     @current_gram ||= Gram.find_by_id(params[:id])
   end
 
-  def render_error(status)
-    render plain: "#{status.to_s.titleize}. :(", status: status
-  end
-
 end
