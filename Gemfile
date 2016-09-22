@@ -56,6 +56,7 @@ gem 'rails_12factor', group: :production
 
 # Use bootstrap 4 w/ bootstrap gem
 gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'font-awesome-sass'
 
 # Use tether for tooltips/popovers
 source 'https://rails-assets.org' do

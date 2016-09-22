@@ -1,10 +1,12 @@
-<div class="row flex-items-xs-center flex-items-xs-around">
-  <% flash.each do |type, message| %>
-    <div class="col-xs-10 alert <%= flash_class(type.to_s) %> alert-dismissible fade in" role="alert">
-       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-    <%= message %>
-    </div>
-  <% end %>
+<div class="container">
+  <div class="row flex-items-xs-around">
+    <% flash.each do |type, message| %>
+      <div class="col-xs alert <%= flash_class(type.to_s) %> alert-dismissible fade in" role="alert">
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+      <%= message %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,26 @@
+<nav class="navbar navbar-light">
+  <a class="navbar-brand" href="#">Grammable</a>
+  <button class="navbar-toggler hidden-md-up pull-xs-right" type="button" data-toggle="collapse" data-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    &#9776;
+  </button>
+  <div class="collapse navbar-toggleable-sm navbar-clear" id="CollapsingNavbar">
+    <div class="nav navbar-nav">
+      <%= link_to new_gram_path, class: 'nav-item nav-link' do %>
+        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New Gram
+      <% end %>
+    </div>
+    <div class="nav navbar-nav pull-md-right">
+      <% if current_user %>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %></a>
+          <div class="dropdown-menu" aria-labelledby="Preview">
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to "Create Account", new_user_registration_path, class: 'nav-item nav-link' %>
+        <%= link_to "Sign In", new_user_session_path, class: 'nav-item nav-link' %>
+      <% end %>
+    </div>
+  </div>
+</nav>

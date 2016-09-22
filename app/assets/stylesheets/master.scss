@@ -1,9 +1,17 @@
+body {
+  background-color: #fafafa;
+  font-family: $text-font;
+}
+
+// Card Styles
+
 .gram-card {
   border: none;
-  // -moz-box-shadow: 2px 2px 3px 0 #d0d0d0;
-  // -webkit-box-shadow: 2px 2px 3px 0 #d0d0d0;
-  // box-shadow: 2px 2px 3px 0 #d0d0d0;
+  -moz-box-shadow: 2px 2px 3px 0 #d0d0d0;
+  -webkit-box-shadow: 2px 2px 3px 0 #d0d0d0;
+  box-shadow: 2px 2px 3px 0 #d0d0d0;
 }
+
 .gram-overlay {
   display: flex;
   opacity: 0.0;
@@ -11,7 +19,56 @@
   -webkit-transition: opacity 0.3s, background-color 0.3s;
   transition: opacity 0.3s, background-color 0.3s;
 }
+
 .gram-overlay:hover {
   opacity: 1.0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.card-title {
+  font-family: $brand-font;
+}
+
+// Navbar Styles
+
+.navbar {
+  margin-bottom: 20px;
+  background-color: white;
+  border-bottom: solid 1px #edeeee;
+}
+
+.navbar-light .navbar-brand {
+  color: $brand-color;
+  font-family: $brand-font;
+  font-size: 1.75rem;
+  margin-right: 2rem;
+}
+
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:hover {
+  color: $brand-color-dark;
+}
+
+.navbar-nav .nav-link {
+  padding-top: .9rem;
+  padding-bottom: .9rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.4);
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: $brand-color;
+}
+
+.navbar-toggler {
+  line-height: 2rem;
+}
+
+// clears toggle button float in collapsed/toggleable navbar
+@media (max-width: 767px) {
+  .navbar-clear {
+    clear: both;
+  }
 }

@@ -1,3 +1,13 @@
+// Bootstrap 4 Options:
+
 $enable-flex: true;
 $enable-rounded: false;
-// $enable-shadows: true;
+
+// Style variables:
+
+$brand-color: #ff0066;
+$brand-color-light: lighten($brand-color, 25%);
+$brand-color-dark: darken($brand-color, 25%);
+
+$brand-font: 'Rock Salt', cursive;
+$text-font: 'Open Sans', sans-serif;
