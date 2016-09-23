@@ -176,6 +176,15 @@ body {
   }
 }
 
+a.delete-link {
+  color: #d9534f;
+}
+
+a.delete-link:hover,
+a.delete-link:focus {
+  color: #b52b27;
+}
+
 
 // Form / Button styles
 

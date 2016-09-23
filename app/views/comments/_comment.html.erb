@@ -2,8 +2,15 @@
 <div class="gram-comment">
   <%= simple_format(comment.message) %>
   <% if local_assigns[:user_profile] %>
-    <small>On <%= link_to comment.gram.message, gram_path(comment.gram) %> | <%= comment.created_at.strftime("%b %d, %Y") %></small>
+    <small>On <%= link_to comment.gram.message, gram_path(comment.gram) %>
   <% else %>
-    <small><%= link_to comment.user.email, user_path(comment.user) %> | <%= comment.created_at.strftime("%b %d, %Y") %></small>
+    <small><%= link_to comment.user.email, user_path(comment.user) %>
   <% end %>
+   | <%= comment.created_at.strftime("%b %d, %Y") %>
+   <% if current_user && (current_user == comment.gram.user || current_user == comment.user) %>
+     | <%= link_to comment_path(comment), method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' }, class: 'delete-link' do %>
+      <i class="fa fa-trash-o" data-toggle="tooltip" data-placement="right" title="Delete Comment" aria-hidden="true"></i>
+      <% end %>
+   <% end %>
+   </small>
 </div>
