@@ -1,7 +1,19 @@
-<h1>Edit Gram:</h1>
-<%= simple_form_for current_gram do |f| %>
-  <%= f.input :message %>
-  <%= f.input :picture %>
-  <%= f.button :submit, 'Save Changes' %>
-<% end %>
-<%= link_to 'Delete this course', gram_path(current_gram), method: :delete, data: { confirm: 'Are you sure you want to delete this gram?' }, class: 'btn btn-danger' %>
+<div class="container">
+  <div class="row flex-items-xs-around">
+    <div class="plain-box col-xs-12 col-sm-8 col-md-6 text-xs-center">
+      <h2 class="brand-header">Edit Gram</h2>
+      <%= simple_form_for current_gram do |f| %>
+        <div class="form-inputs">
+          <%= f.input :message %>
+          <%= f.input :picture %>
+          <label id="upload-button" for="gram_picture"><i class="fa fa-cloud-upload"></i> <span>Select an Image to Upload</span></label>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, 'Save Changes', class:'btn btn-brand' %>
+          <br />
+          <%= link_to 'Cancel', gram_path(current_gram), class:'btn btn-secondary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

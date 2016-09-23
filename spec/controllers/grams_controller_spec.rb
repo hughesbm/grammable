@@ -130,7 +130,7 @@ RSpec.describe GramsController, type: :controller do
       sign_in gram.user
 
       patch :update, params: { id: gram.id, gram: { message: 'Changed' } }
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to gram_path(gram)
 
       gram.reload
       expect(gram.message).to eq 'Changed'

@@ -33,8 +33,8 @@ class GramsController < ApplicationController
     return render_error(:forbidden) if current_gram.user != current_user
     current_gram.update_attributes(gram_params)
     if current_gram.valid?
-      flash[:success] = "Gram edited!"
-      redirect_to root_path
+      flash[:success] = "Changes saved."
+      redirect_to gram_path(current_gram)
     else
       render :edit, status: :unprocessable_entity
     end

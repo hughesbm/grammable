@@ -1,6 +1,17 @@
-<h1>Post a New Gram</h1>
-<%= simple_form_for @gram do |f| %>
-  <%= f.input :message %>
-  <%= f.input :picture %>
-  <%= f.button :submit, 'Post my gram!' %>
-<% end %>
+<div class="container">
+  <div class="row flex-items-xs-around">
+    <div class="plain-box col-xs-12 col-sm-8 col-md-6 text-xs-center">
+      <h2 class="brand-header">Post a New Gram!</h2>
+      <%= simple_form_for @gram do |f| %>
+        <div class="form-inputs">
+          <%= f.input :message %>
+          <%= f.input :picture %>
+          <label id="upload-button" for="gram_picture"><i class="fa fa-cloud-upload"></i> <span>Select an Image to Upload</span></label>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, 'Post my gram!', class: 'btn btn-brand btn-lg', id: 'submit-button' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
