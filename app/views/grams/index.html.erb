@@ -4,7 +4,7 @@
     <br class="m-y-2">
   </div>
   <div class="col-xs-12">
-    <p class="lead">Also featuring street art, monochrome self-portraits, and lattes. Mostly just food, though.</p>
+    <p class="lead">Also street art, monochrome self-portraits, and lattes. But mostly food.</p>
     <br class="m-y-2">
   </div>
   <div class="col-xs-12">
@@ -13,20 +13,6 @@
 </div>
 <div class="container">
   <div class="row flex-items-xs-around">
-    <% @grams.each do |gram| %>
-      <div class="col-md-6 col-lg-4">
-        <div class="gram-card card card-inverse text-xs-center">
-          <%= link_to gram_path(gram) do %>
-            <%= image_tag gram.picture.url(:square), class: "img-fluid card-img" %>
-            <div class="gram-overlay card-img-overlay flex-items-xs-middle flex-items-xs-center">
-              <div>
-                <h3 class="card-title"><%= gram.message %></h3>
-                <p class="card-text"><%= gram.created_at.strftime("Added %b %d, %Y") %></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+    <%= render partial: 'gram', collection: @grams, layout: 'gram_index_layout' %>
   </div>
 </div>

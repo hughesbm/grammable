@@ -20,15 +20,9 @@
   <div class="row flex-items-xs-around">
     <div class="comments-box plain-box col-xs-11 col-sm-8 col-md-6 text-xs-center">
       <h2 class="brand-header">Comments</h2>
+      <%= render current_gram.comments %>
       <hr />
-      <% current_gram.comments.each do |comment| %>
-        <div class="gram-comment">
-          <%= simple_format(comment.message) %>
-          <small><%= comment.user.email %> | <%= comment.created_at.strftime("%b %d, %Y") %></small>
-        </div>
-        <hr />
-      <% end %>
-      <h5>Leave a Comment</h5>
+      <h5 class="extra-space-header">Leave a Comment</h5>
       <%= simple_form_for Comment.new, url: gram_comments_path(current_gram) do |f| %>
         <div class="form-inputs">
           <%= f.input :message, label: false %>

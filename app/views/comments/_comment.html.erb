@@ -1,0 +1,9 @@
+<hr />
+<div class="gram-comment">
+  <%= simple_format(comment.message) %>
+  <% if local_assigns[:user_profile] %>
+    <small>On <%= link_to comment.gram.message, gram_path(comment.gram) %> | <%= comment.created_at.strftime("%b %d, %Y") %></small>
+  <% else %>
+    <small><%= link_to comment.user.email, user_path(comment.user) %> | <%= comment.created_at.strftime("%b %d, %Y") %></small>
+  <% end %>
+</div>

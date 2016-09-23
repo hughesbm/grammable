@@ -46,6 +46,14 @@ body {
   }
 }
 
+.list-box {
+  p:last-child,
+  div:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
 .jumbotron {
   margin-top: 1rem;
   color: white;
@@ -117,6 +125,16 @@ body {
   margin-bottom: 2rem;
 }
 
+@include media-breakpoint-down(xs) {
+  .brand-header {
+    margin: 1rem 0 2rem 0;
+  }
+}
+
+.extra-space-header {
+  margin: 1.5rem;
+}
+
 .gram-message {
   @extend .brand-header;
   color: black;
@@ -134,20 +152,30 @@ body {
 
 .gram-comment {
   padding: 1rem;
-  // white-space: pre-wrap;
 
   small {
     color: rgba(0, 0, 0, 0.4);
   }
 }
 
-.comments-box {
-  padding-top: 0;
+.email-header {
+  @extend .brand-header;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    margin: 2rem;
+@include media-breakpoint-down(md) {
+  .email-header {
+    font-size: 1.5rem;
   }
 }
+
+@include media-breakpoint-down(xs) {
+  .email-header {
+    font-size: 1rem;
+  }
+}
+
 
 // Form / Button styles
 

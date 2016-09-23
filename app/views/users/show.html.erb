@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row flex-items-xs-around">
+    <div class="plain-box list-box col-xs-11 col-sm-10 col-md-8 text-xs-center">
+      <h2 class="email-header"><%= @user.email_local_part %></h2>
+      <h2 class="email-header"><%= @user.email_domain %></h2>
+      <hr />
+      <p><%= @user.created_at.strftime("Grammin' since %b %d, %Y") %></p>
+      <p><%= @user.grams.count %> grams | <%= @user.comments.count %> comments</p>
+    </div>
+  </div>
+  <div class="row flex-items-xs-around">
+    <div class="plain-box list-box col-xs-11 col-sm-10 col-md-8 text-xs-center">
+      <h5 class="brand-header">My Grams</h5>
+      <hr />
+      <div class="row flex-items-xs-around">
+        <%= render(partial: 'gram', collection: @user.grams, layout: 'gram_profile_layout') || "No grams yet. :(" %>
+      </div>
+    </div>
+  </div>
+  <div class="row flex-items-xs-around">
+    <div class="plain-box list-box col-xs-11 col-sm-10 col-md-8 text-xs-center">
+      <h5 class="brand-header">My Comments</h5>
+      <%= render( @user.comments, user_profile: :true) || "No comments yet. :(" %>
+    </div>
+  </div>
+</div>
