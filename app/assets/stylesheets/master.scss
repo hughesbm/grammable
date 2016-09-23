@@ -47,11 +47,7 @@ body {
 }
 
 .list-box {
-  p:last-child,
-  div:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+  padding-bottom: 1rem;
 }
 
 .jumbotron {
