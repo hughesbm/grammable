@@ -1,11 +1,13 @@
-<div class="gram-card card card-inverse text-xs-center">
-  <%= link_to gram_path(gram) do %>
-    <%= image_tag gram.picture.url(:square), class: "img-fluid card-img" %>
-    <div class="gram-overlay card-img-overlay flex-items-xs-middle flex-items-xs-center">
-      <div>
-        <h3 class="card-title"><%= gram.message %></h3>
-        <p class="card-text"><%= gram.created_at.strftime("Added %b %d, %Y") %></p>
-      </div>
-    </div>
-  <% end %>
+<%= link_to gram_path(gram) do %>
+  <%= image_tag gram.picture.url(:square), class: "img-fluid" %>
+  <div class="gram-message">
+    <h4><%= gram.message %></h4>
+<% end %>
+  <div class="gram-details">
+    <small>
+    <% unless local_assigns[:user_profile] %>
+      <%= link_to gram.user.email, user_path(gram.user) %> |
+    <% end %>
+    <%= gram.created_at.strftime("%b %d, %Y") %></small>
+  </div>
 </div>

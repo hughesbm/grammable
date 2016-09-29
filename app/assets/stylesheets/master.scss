@@ -4,27 +4,50 @@ body {
   padding-bottom: 3rem;
 }
 
+a {
+  color: rgba(0,0,0,0.4);
+}
+
+a:hover,
+a:focus {
+  color: $brand-color;
+  text-decoration: none;
+}
+
 // Card Styles
 
 .gram-card {
-  border: none;
-  -moz-box-shadow: 2px 2px 3px 0 #d0d0d0;
-  -webkit-box-shadow: 2px 2px 3px 0 #d0d0d0;
-  box-shadow: 2px 2px 3px 0 #d0d0d0;
   margin: 1rem 0.5rem;
+  position:relative;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+          box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
-.gram-overlay {
-  display: flex;
-  opacity: 0.0;
-  background-color: transparent;
-  -webkit-transition: opacity 0.3s, background-color 0.3s;
-  transition: opacity 0.3s, background-color 0.3s;
+.gram-card:before,
+.gram-card:after {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+  -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+  box-shadow:0 0 20px rgba(0,0,0,0.8);
+  top:50%;
+  bottom:0;
+  left:10px;
+  right:10px;
+  -moz-border-radius:100px / 10px;
+  border-radius:100px / 10px;
 }
 
-.gram-overlay:hover {
-  opacity: 1.0;
-  background-color: rgba(0, 0, 0, 0.6);
+.gram-card:after {
+  right:10px;
+  left:auto;
+  -webkit-transform:skew(8deg) rotate(3deg);
+     -moz-transform:skew(8deg) rotate(3deg);
+      -ms-transform:skew(8deg) rotate(3deg);
+       -o-transform:skew(8deg) rotate(3deg);
+          transform:skew(8deg) rotate(3deg);
 }
 
 .card-title {
@@ -34,6 +57,7 @@ body {
 // Box Styles
 
 .plain-box {
+  background-color: white;
   border: solid 1px #edeeee;
   padding: 2rem;
   margin-top: 1rem;
@@ -44,6 +68,10 @@ body {
   .plain-box {
     padding: 1em;
   }
+}
+
+.plain-box-thin {
+  padding: 1em;
 }
 
 .list-box {
@@ -95,11 +123,11 @@ body {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.4);
+  @extend a;
 }
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-  color: $brand-color;
+  @extend a:hover;
 }
 
 .navbar-toggler {
@@ -132,26 +160,29 @@ body {
 }
 
 .gram-message {
-  @extend .brand-header;
-  color: black;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  h2, h4 {
+    @extend .brand-header;
+    color: black;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  a:hover,
+  a:focus {
+    h2, h4 {
+      @extend a:hover;
+    }
+  }
 }
 
 @include media-breakpoint-down(xs) {
   .gram-message {
-    font-size: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 0rem;
+    font-size: 1.25rem;
   }
 }
 
 .gram-comment {
   padding: 1rem;
-
-  small {
-    color: rgba(0, 0, 0, 0.4);
-  }
 }
 
 .email-header {
@@ -179,6 +210,10 @@ a.delete-link {
 a.delete-link:hover,
 a.delete-link:focus {
   color: #b52b27;
+}
+
+small {
+  color: rgba(0, 0, 0, 0.4);
 }
 
 

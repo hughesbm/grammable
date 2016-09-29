@@ -13,7 +13,7 @@
       <h5 class="brand-header">My Grams</h5>
       <hr />
       <div class="row flex-items-xs-around">
-        <%= render(partial: 'gram', collection: @user.grams, layout: 'gram_profile_layout') || "No grams yet. :(" %>
+        <%= render(partial: 'gram', collection: @user.grams, locals: { user_profile: :true }, layout: 'gram_profile_layout') || "No grams yet. :(" %>
       </div>
     </div>
   </div>
