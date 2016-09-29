@@ -17,11 +17,10 @@ a:focus {
 // Card Styles
 
 .gram-card {
-  margin: 1rem 0.5rem;
   position:relative;
-  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-          box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.1);
+          box-shadow:0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .gram-card:before,
@@ -255,6 +254,10 @@ small {
   padding: 10px;
   color: red;
   font-weight: bold;
+
+  .help-block {
+    color: rgba(255, 0, 0, 0.5);
+  }
 }
 
 // Hides ugly default file upload input
