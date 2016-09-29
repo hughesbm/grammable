@@ -13,14 +13,14 @@
       <h5 class="brand-header">My Grams</h5>
       <hr />
       <div class="row flex-items-xs-around">
-        <%= render(partial: 'gram', collection: @user.grams, locals: { user_profile: :true }, layout: 'gram_profile_layout') || "No grams yet. :(" %>
+        <%= render(partial: 'gram', collection: @user.grams, layout: 'gram_profile_layout') || "No grams yet. :(" %>
       </div>
     </div>
   </div>
   <div class="row flex-items-xs-around">
     <div class="plain-box list-box col-xs-11 col-sm-10 col-md-8 text-xs-center">
       <h5 class="brand-header">My Comments</h5>
-      <%= render( @user.comments, user_profile: :true) || "No comments yet. :(" %>
+      <%= render( @user.comments ) || "No comments yet. :(" %>
     </div>
   </div>
 </div>

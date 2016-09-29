@@ -164,13 +164,15 @@ a:focus {
     color: black;
     margin-top: 2rem;
     margin-bottom: 1rem;
+
+    a {
+      color: black;
+    }
   }
 
   a:hover,
   a:focus {
-    h2, h4 {
-      @extend a:hover;
-    }
+    @extend a:hover;
   }
 }
 

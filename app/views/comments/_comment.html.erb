@@ -1,10 +1,10 @@
 <hr />
 <div class="gram-comment">
   <%= simple_format(comment.message) %>
-  <% if local_assigns[:user_profile] %>
-    <small>On <%= link_to comment.gram.message, gram_path(comment.gram) %>
-  <% else %>
+  <% if local_assigns[:show_user] %>
     <small><%= link_to comment.user.email, user_path(comment.user) %>
+  <% else %>
+    <small>On <%= link_to comment.gram.message, gram_path(comment.gram) %>
   <% end %>
    | <%= comment.created_at.strftime("%b %d, %Y") %>
    <% if current_user && (current_user == comment.gram.user || current_user == comment.user) %>

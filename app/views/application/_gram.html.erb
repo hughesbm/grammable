@@ -1,15 +1,21 @@
 <div class="gram-card plain-box plain-box-thin text-xs-center">
-  <%= link_to gram_path(gram) do %>
-    <%= image_tag gram.picture.url(:square), class: "img-fluid" %>
-    <div class="gram-message">
-      <h4><%= gram.message %></h4>
+  <% if local_assigns[:gram_page] %>
+    <%= image_tag gram.picture, class: "img-fluid" %>
+  <% else %>
+    <%= link_to (image_tag gram.picture.url(:square), class: "img-fluid"), gram_path(gram) %>
   <% end %>
+  <div class="gram-message">
+    <% if local_assigns[:gram_page] %>
+      <h4><%= gram.message %></h4>
+    <% else %>
+      <h4><%= link_to gram.message, gram_path(gram) %></h4>
+    <% end %>
     <div class="gram-details">
-      <small>
-      <% unless local_assigns[:user_profile] %>
-        <%= link_to gram.user.email, user_path(gram.user) %> |
+      <% if local_assigns[:show_user] %>
+        <small><%= link_to gram.user.email, user_path(gram.user) %></small>
+        <br />
       <% end %>
-      <%= gram.created_at.strftime("%b %d, %Y") %></small>
+      <small><%= gram.created_at.strftime("%b %d, %Y") %></small>
     </div>
   </div>
 </div>

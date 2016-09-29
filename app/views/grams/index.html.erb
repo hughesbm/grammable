@@ -13,6 +13,6 @@
 </div>
 <div class="container">
   <div class="row flex-items-xs-around">
-    <%= render partial: 'gram', collection: @grams, layout: 'gram_index_layout' %>
+    <%= render partial: 'gram', collection: @grams, locals: { show_user: :true }, layout: 'gram_index_layout' %>
   </div>
 </div>
